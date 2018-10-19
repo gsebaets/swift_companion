@@ -121,22 +121,22 @@
                                         <rect key="frame" x="8" y="8" width="359" height="558"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Yd7-SD-aYV" detailTextLabel="Bva-sT-cNs" style="IBUITableViewCellStyleValue1" id="XPD-o8-s77">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ext-FQ-qvw" detailTextLabel="ztw-qO-GFw" style="IBUITableViewCellStyleValue1" id="XPD-o8-s77">
                                                 <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XPD-o8-s77" id="56F-R4-ZIx">
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yd7-SD-aYV">
-                                                            <rect key="frame" x="15" y="12" width="54.5" height="20.5"/>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ext-FQ-qvw">
+                                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bva-sT-cNs">
-                                                            <rect key="frame" x="330" y="12" width="14" height="20.5"/>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ztw-qO-GFw">
+                                                            <rect key="frame" x="300" y="12" width="44" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -377,11 +377,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="n58-le-QYe"/>
                     <connections>
+                        <outlet property="correctionLabel" destination="bKp-H0-0fM" id="yml-Os-hgA"/>
                         <outlet property="emailLabel" destination="x8W-gj-PCP" id="7yV-LT-zjT"/>
                         <outlet property="imageView" destination="OBc-nv-PZ6" id="bIb-AU-ZDm"/>
                         <outlet property="nameLabel" destination="lnj-Cz-0O0" id="Izt-xB-fHn"/>
                         <outlet property="phoneLabel" destination="pat-Zr-9IP" id="JpL-O8-crx"/>
                         <outlet property="userNameLabel" destination="1sT-Kw-ayC" id="kJu-wT-FGJ"/>
+                        <outlet property="walletLabel" destination="tTw-B1-jsf" id="Yug-8n-8Eq"/>
+                        <outlet property="yearLabel" destination="qUF-kL-wgF" id="RpJ-zz-BEN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWm-xe-9J9" userLabel="First Responder" sceneMemberID="firstResponder"/>

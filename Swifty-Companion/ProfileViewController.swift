@@ -19,11 +19,9 @@ class ProfileViewController: UIViewController, UIDelegate{
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var walletLabel: UIScrollView!
-    @IBOutlet weak var yearLabel: UIScrollView!
-    
-   // @IBOutlet weak var correctionLabel: UILabel!
-    
+    @IBOutlet weak var correctionLabel: UILabel!
+    @IBOutlet weak var walletLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -40,10 +38,11 @@ class ProfileViewController: UIViewController, UIDelegate{
         nameLabel.text = name
         emailLabel.text = email
         userNameLabel.text = login
-        phoneLabel.text = phone
-//        pool_year = yearLabel.text
-//        walletLabel = wallet
-//        correctionLabel.text =
+        phoneLabel.text = "Phone: " + phone
+        yearLabel.text = pool_year
+        walletLabel.text = "Wallet: $ " + wallet
+        correctionLabel.text = "Correction Points: " + correction_point
+        
         if let url = URL(string: ProfileViewController.realImageUrl!)
         {
             imageView.contentMode = .scaleAspectFit

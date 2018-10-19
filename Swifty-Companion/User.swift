@@ -42,6 +42,6 @@ struct User {
     var phone: String;
     var pool_year: String;
     var wallet: String;
-    //var projects: String;
+    var projects: String;
     //var skills: String;
 }
