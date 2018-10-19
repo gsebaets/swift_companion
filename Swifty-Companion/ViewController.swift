@@ -148,6 +148,8 @@ class ViewController: UIViewController {
                     pool_year = "\(json["pool_year"])";
                     wallet = "\(json["wallet"])";
                     
+                    print(email)
+                    
                     var newImage_url = image_url.components(separatedBy:user)[0]
                     newImage_url.append("medium_")
                     newImage_url.append(user)
@@ -221,7 +223,7 @@ class ViewController: UIViewController {
     }
     
     func openTabView(){
-        if(skills.count > 0){
+        if(wallet.count >= 0 && wallet != "null"){
             print("Opening")
             let main = UIStoryboard.init(name: "Main", bundle: nil);
             let tabView = main.instantiateViewController(withIdentifier: "TabController");
