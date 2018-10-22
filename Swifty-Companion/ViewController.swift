@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         request.httpBody =     "grant_type=client_credentials&client_id=fe6b5d1013c7372cb4f5f2184d1fea5f80241b0a38f011b243092ffbacb73a35&client_secret=d175f1ca71a908b07742eec622198c2ae6a1dcda494b04bdeaec62ad19af1103".data(using: String.Encoding.utf8)
         
         let session = URLSession.shared
-        token = ""
+       // token = ""
         session.dataTask(with: request) { (data, response, error) in
             if let data = data {
                 do {
@@ -88,9 +88,9 @@ class ViewController: UIViewController {
                     
                     if let tempToken = dictonary
                     {
-                        token = (tempToken["access_token"] as! String)
-                        Token = token!;
-                        print("Token: \(String(describing: token))")
+                        Token = (tempToken["access_token"] as! String)
+                        //Token = token!;
+                        print("Token: \(String(describing: Token))")
                     }
                     
                 }catch let error {
@@ -138,7 +138,7 @@ class ViewController: UIViewController {
                         data!, options: [])
                     
                     let json = JSON(jsonResponse);
-                    
+                    print(json)
                     id = "\(json["id"])";
                     name = "\(json["displayname"])";
                     email = "\(json["email"])";
@@ -150,10 +150,20 @@ class ViewController: UIViewController {
                     
                     print(email)
                     
-                    var newImage_url = image_url.components(separatedBy:user)[0]
-                    newImage_url.append("medium_")
-                    newImage_url.append(user)
-                    newImage_url.append(".jpg")
+                    var newImage_url = ""
+                    
+                    if image_url.lowercased().range(of:"default") != nil
+                    {
+                       newImage_url =  "https://cdn.intra.42.fr/users/medium_default.png"
+                    }
+                    else
+                    {
+                        newImage_url = image_url.components(separatedBy:user)[0]
+                        newImage_url.append("medium_")
+                        newImage_url.append(user)
+                        newImage_url.append(".jpg")
+                    }
+                    
                     ProfileViewController.realImageUrl = newImage_url
     
                     if let items = json["cursus_users"][0]["skills"].array
@@ -165,11 +175,6 @@ class ViewController: UIViewController {
                         }
                     }
                     
-                    //for item in skills {
-                        //print(item.id);
-                        //print(item.name);
-                        //print(item.level);
-                    //}
                     
                     if let items = json["projects_users"].array
                     {
@@ -181,11 +186,7 @@ class ViewController: UIViewController {
                         }
                     }
                     
-                    //for item in projects {
-                        //print(item.id);
-                        //print(item.name);
-                        //print(item.final_mark);
-                    //}
+            
                     
                     login = "\(json["login"])"
                     
@@ -222,7 +223,8 @@ class ViewController: UIViewController {
         login = "";
     }
     
-    func openTabView(){
+    func openTabView()
+    {
         if(wallet.count >= 0 && wallet != "null"){
             print("Opening")
             let main = UIStoryboard.init(name: "Main", bundle: nil);
