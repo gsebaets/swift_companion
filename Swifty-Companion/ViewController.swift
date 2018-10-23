@@ -22,6 +22,7 @@ var wallet = "";
 var skills:[skill] = [];
 var projects:[project] = [];
 var login = "";
+var expirationDate: Date?
 
 struct project
 {
@@ -96,10 +97,13 @@ class ViewController: UIViewController
                 do
                 {
                     let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
+                    print(dictionary!)
                     if let tempToken = dictionary
                     {
+                        expirationDate = Date(timeIntervalSinceNow: 7200 + (tempToken["expires_in"] as! Double))
+                        print(expirationDate!)
                         Token = (tempToken["access_token"] as! String)
-                        print("Token: \(String(describing: Token))")
+                        print("Token: \(String(describing: Token))\n\n\n")
                     }
                     
                 }
@@ -111,9 +115,19 @@ class ViewController: UIViewController
         }.resume()
     }
     
+    func didTokenExpire() -> Bool
+    {
+        let currenDate = Date(timeIntervalSinceNow: 0)
+        return (currenDate == expirationDate)
+    }
+    
     func getUser(user: String)
     {
-        
+        if (didTokenExpire())
+        {
+            print("\n\n\nit expiration\n\n\n")
+            appLogin()
+        }
         let semaphore = DispatchSemaphore(value: 0)
         
         clearUser();
@@ -123,7 +137,6 @@ class ViewController: UIViewController
         let url = URL(string: authEndPoint)
         
         var request = URLRequest(url: url!)
-        print("Token 1: \(Token)")
         request.setValue("Bearer " + Token , forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         let session = URLSession.shared

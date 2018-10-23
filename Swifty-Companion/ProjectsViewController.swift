@@ -16,6 +16,7 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
         return (projects.count)
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath ) as! CustomTableViewCell
