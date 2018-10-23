@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A24E422C217F1AEE00B7E157 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24E422B217F1AEE00B7E157 /* ProjectsViewController.swift */; };
+		A24E422E217F1B2500B7E157 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24E422D217F1B2500B7E157 /* SkillsViewController.swift */; };
+		A2BED87B217F1F5600F7949C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BED87A217F1F5600F7949C /* CustomTableViewCell.swift */; };
 		A63465C22175EFD3000D27A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465C12175EFD3000D27A3 /* AppDelegate.swift */; };
 		A63465C42175EFD3000D27A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465C32175EFD3000D27A3 /* ViewController.swift */; };
 		A63465C72175EFD3000D27A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63465C52175EFD3000D27A3 /* Main.storyboard */; };
 		A63465CA2175EFD3000D27A3 /* Swifty_Companion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A63465C82175EFD3000D27A3 /* Swifty_Companion.xcdatamodeld */; };
 		A63465CC2175EFDC000D27A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A63465CB2175EFDC000D27A3 /* Assets.xcassets */; };
 		A63465CF2175EFDC000D27A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63465CD2175EFDC000D27A3 /* LaunchScreen.storyboard */; };
-		A63465D7217601B4000D27A3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465D6217601B4000D27A3 /* ApiService.swift */; };
-		A63465D921760200000D27A3 /* Authorise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465D821760200000D27A3 /* Authorise.swift */; };
-		A63465DB2176023A000D27A3 /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465DA2176023A000D27A3 /* AuthDelegate.swift */; };
 		A63465DD21760273000D27A3 /* clientKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465DC21760273000D27A3 /* clientKeys.swift */; };
-		A63465DF217602AD000D27A3 /* UIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465DE217602AD000D27A3 /* UIDelegate.swift */; };
 		A63465E121760427000D27A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465E021760427000D27A3 /* User.swift */; };
 		A63465E321760E93000D27A3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63465E221760E93000D27A3 /* ProfileViewController.swift */; };
 		F88A7DE56439F66936B3AECE /* Pods_Swifty_Companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A2A7DB06A6BE6DAB27287A /* Pods_Swifty_Companion.framework */; };
@@ -25,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		420644D4D810FDCFA91E4053 /* Pods-Swifty-Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.debug.xcconfig"; sourceTree = "<group>"; };
+		A24E422B217F1AEE00B7E157 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		A24E422D217F1B2500B7E157 /* SkillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
+		A2BED87A217F1F5600F7949C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		A5A2A7DB06A6BE6DAB27287A /* Pods_Swifty_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swifty_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63465BE2175EFD3000D27A3 /* Swifty-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63465C12175EFD3000D27A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,11 +36,7 @@
 		A63465CB2175EFDC000D27A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A63465CE2175EFDC000D27A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A63465D02175EFDC000D27A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A63465D6217601B4000D27A3 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		A63465D821760200000D27A3 /* Authorise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorise.swift; sourceTree = "<group>"; };
-		A63465DA2176023A000D27A3 /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
 		A63465DC21760273000D27A3 /* clientKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clientKeys.swift; sourceTree = "<group>"; };
-		A63465DE217602AD000D27A3 /* UIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDelegate.swift; sourceTree = "<group>"; };
 		A63465E021760427000D27A3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A63465E221760E93000D27A3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CA8B6B7D0A3DBAB400B7AED9 /* Pods-Swifty-Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,13 +91,12 @@
 				A63465CD2175EFDC000D27A3 /* LaunchScreen.storyboard */,
 				A63465D02175EFDC000D27A3 /* Info.plist */,
 				A63465C82175EFD3000D27A3 /* Swifty_Companion.xcdatamodeld */,
-				A63465D6217601B4000D27A3 /* ApiService.swift */,
-				A63465D821760200000D27A3 /* Authorise.swift */,
-				A63465DA2176023A000D27A3 /* AuthDelegate.swift */,
 				A63465DC21760273000D27A3 /* clientKeys.swift */,
-				A63465DE217602AD000D27A3 /* UIDelegate.swift */,
 				A63465E021760427000D27A3 /* User.swift */,
 				A63465E221760E93000D27A3 /* ProfileViewController.swift */,
+				A24E422B217F1AEE00B7E157 /* ProjectsViewController.swift */,
+				A24E422D217F1B2500B7E157 /* SkillsViewController.swift */,
+				A2BED87A217F1F5600F7949C /* CustomTableViewCell.swift */,
 			);
 			path = "Swifty-Companion";
 			sourceTree = "<group>";
@@ -186,15 +183,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -208,15 +201,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Swifty-Companion-checkManifestLockResult.txt",
 			);
@@ -232,16 +221,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2BED87B217F1F5600F7949C /* CustomTableViewCell.swift in Sources */,
 				A63465CA2175EFD3000D27A3 /* Swifty_Companion.xcdatamodeld in Sources */,
 				A63465C42175EFD3000D27A3 /* ViewController.swift in Sources */,
 				A63465E321760E93000D27A3 /* ProfileViewController.swift in Sources */,
-				A63465DB2176023A000D27A3 /* AuthDelegate.swift in Sources */,
 				A63465DD21760273000D27A3 /* clientKeys.swift in Sources */,
-				A63465DF217602AD000D27A3 /* UIDelegate.swift in Sources */,
 				A63465E121760427000D27A3 /* User.swift in Sources */,
-				A63465D7217601B4000D27A3 /* ApiService.swift in Sources */,
 				A63465C22175EFD3000D27A3 /* AppDelegate.swift in Sources */,
-				A63465D921760200000D27A3 /* Authorise.swift in Sources */,
+				A24E422E217F1B2500B7E157 /* SkillsViewController.swift in Sources */,
+				A24E422C217F1AEE00B7E157 /* ProjectsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

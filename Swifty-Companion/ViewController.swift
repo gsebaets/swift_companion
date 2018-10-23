@@ -23,53 +23,60 @@ var skills:[skill] = [];
 var projects:[project] = [];
 var login = "";
 
-struct project {
+struct project
+{
     var id: Int;
     var name: String;
     var final_mark: Int;
 }
 
-struct skill {
+struct skill
+{
     var id : Int;
     var name: String;
     var level: Int;
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
     @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var searchBtn: UIButton!
     
-    @IBAction func SearchForStudentButton(_ sender: UIButton) {
+    @IBAction func SearchForStudentButton(_ sender: UIButton)
+    {
         print("Start Search");
         clearUser();
-        if(userNameTextField.text != ""){
+        if(userNameTextField.text != "")
+        {
             print("User: \(String(describing: userNameTextField.text))")
-            
             getUser(user: userNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
         }
-        else{
+        else
+        {
             let alert = UIAlertController(title: "Error Empty Field!", message: "You shall not pass!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
     }
     
-    func setUpToken(token:String) {
-        print(token);
-    }
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad();
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back")!)
+        searchBtn.layer.cornerRadius = 5
         // Do any additional setup after loading the view, typically from a nib.
         appLogin();
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func appLogin() {
+    func appLogin()
+    {
         print("Authorising!");
         let authEndPoint: String = "https://api.intra.42.fr/oauth/token"
         let url = URL(string: authEndPoint)
@@ -80,35 +87,38 @@ class ViewController: UIViewController {
         request.httpBody =     "grant_type=client_credentials&client_id=fe6b5d1013c7372cb4f5f2184d1fea5f80241b0a38f011b243092ffbacb73a35&client_secret=d175f1ca71a908b07742eec622198c2ae6a1dcda494b04bdeaec62ad19af1103".data(using: String.Encoding.utf8)
         
         let session = URLSession.shared
-       // token = ""
-        session.dataTask(with: request) { (data, response, error) in
-            if let data = data {
-                do {
-                    let dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
-                    
-                    if let tempToken = dictonary
+       
+        session.dataTask(with: request)
+        {
+            (data, response, error) in
+            if let data = data
+            {
+                do
+                {
+                    let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
+                    if let tempToken = dictionary
                     {
                         Token = (tempToken["access_token"] as! String)
-                        //Token = token!;
                         print("Token: \(String(describing: Token))")
                     }
                     
-                }catch let error {
+                }
+                catch let error
+                {
                     print(error)
                 }
             }
-            }.resume()
+        }.resume()
     }
     
-    func getUser(user: String) {
+    func getUser(user: String)
+    {
         
         let semaphore = DispatchSemaphore(value: 0)
         
         clearUser();
         print("Retrieving User!");
-        print("Username: \(user)")
         let link = "https://api.intra.42.fr/v2/users/\(user)"
-        print("Link: \(link)")
         let authEndPoint: String = link;
         let url = URL(string: authEndPoint)
         
@@ -121,7 +131,6 @@ class ViewController: UIViewController {
         let task = session.dataTask(with: request, completionHandler:
         {
             (data, response, error) -> Void in
-            // this is where the completion handler code goes
             
             if (error != nil)
             {
@@ -129,6 +138,7 @@ class ViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
+            
             if data != nil
             {
                 do
@@ -138,7 +148,7 @@ class ViewController: UIViewController {
                         data!, options: [])
                     
                     let json = JSON(jsonResponse);
-                    print(json)
+        
                     id = "\(json["id"])";
                     name = "\(json["displayname"])";
                     email = "\(json["email"])";
@@ -147,8 +157,6 @@ class ViewController: UIViewController {
                     phone = "\(json["phone"])";
                     pool_year = "\(json["pool_year"])";
                     wallet = "\(json["wallet"])";
-                    
-                    print(email)
                     
                     var newImage_url = ""
                     
@@ -182,11 +190,8 @@ class ViewController: UIViewController {
                         {
                             let newProject = project(id: item["id"].intValue, name: item["project"]["name"].stringValue, final_mark: item["final_mark"].intValue)
                             projects.append(newProject);
-                            //print(item);
                         }
                     }
-                    
-            
                     
                     login = "\(json["login"])"
                     
@@ -202,14 +207,18 @@ class ViewController: UIViewController {
         })
         task.resume()
         let timeout = DispatchTime.now() + DispatchTimeInterval.seconds(5);
-        if semaphore.wait(timeout: timeout) == DispatchTimeoutResult.timedOut{
+        if semaphore.wait(timeout: timeout) == DispatchTimeoutResult.timedOut
+        {
             print("Test timed out");
-        }else{
+        }
+        else
+        {
             self.openTabView();
         }
     }
     
-    func clearUser(){
+    func clearUser()
+    {
         name = "";
         id = "";
         email = "";
@@ -225,12 +234,12 @@ class ViewController: UIViewController {
     
     func openTabView()
     {
-        if(wallet.count >= 0 && wallet != "null"){
-            print("Opening")
-            let main = UIStoryboard.init(name: "Main", bundle: nil);
-            let tabView = main.instantiateViewController(withIdentifier: "TabController");
-            self.present(tabView, animated: true, completion: nil);
-        }else{
+        if(wallet != "null" && wallet.count >= 0)
+        {
+            performSegue(withIdentifier: "ProfileSegue", sender: self)
+        }
+        else
+        {
             let alert = UIAlertController(title: "Error!", message: "User not found!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)

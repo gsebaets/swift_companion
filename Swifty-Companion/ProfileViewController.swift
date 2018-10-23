@@ -24,17 +24,10 @@ class ProfileViewController: UIViewController
     @IBOutlet weak var walletLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad();
-        print("Id: \(String(describing: id))");
-        print("Name: \(String(describing: name))");
-        print("Email: \(String(describing: email))");
-        print("Correction Points: \(String(describing: correction_point))");
-        print("Image: \(String(describing: ProfileViewController.realImageUrl))");
-        print("Phone: \(String(describing: phone))");
-        print("Cohort: \(String(describing: pool_year))");
-        print("Wallet: \(String(describing: wallet))");
-        print("Login: \(String(describing: login))");
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back")!)
         
         nameLabel.text = name
         emailLabel.text = email
@@ -47,23 +40,37 @@ class ProfileViewController: UIViewController
         if let url = URL(string: ProfileViewController.realImageUrl!)
         {
             imageView.contentMode = .scaleAspectFit
+            imageView.layer.borderWidth = 1
+            imageView.layer.masksToBounds = false
+            imageView.layer.borderColor = UIColor.blue.cgColor
+            imageView.layer.cornerRadius = imageView.frame.width/2
+            imageView.clipsToBounds = true
             downloadImage(from: url)
         }
     }
 
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ())
+    {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 
     func downloadImage(from url: URL)
     {
         print("Download Started")
-        getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            DispatchQueue.main.async() {
-                self.imageView.image = UIImage(data: data)
+        getData(from: url)
+        {
+            (data, response, error) in
+            if error != nil
+            {
+                return
+            }
+            if (data != nil)
+            {
+                print("Download Finished")
+                DispatchQueue.main.async()
+                {
+                    self.imageView.image = UIImage(data: data!)
+                }
             }
         }
     }
